@@ -1,4 +1,4 @@
-import Container from "../Container"
+import Container from '../Container'
 
 type FeatureType = {
   image?: string
@@ -6,16 +6,18 @@ type FeatureType = {
   content?: string
 }
 
-export default function SectionContainer({image, content, title, features, children}: {
+export default function SectionContainer({
+  image,
+  content,
+  title,
+  features,
+  children,
+}: {
   image?: string
   content: string
   title?: string
   features?: FeatureType[]
   children: React.ReactNode
 }) {
-  return (
-    <Container className="gap-8">
-      {children}
-    </Container>
-  )
+  return <Container className="gap-8">{children}</Container>
 }

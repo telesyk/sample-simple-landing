@@ -1,23 +1,25 @@
 'use client'
 
-import {useState, createContext} from 'react'
+import { useState, createContext } from 'react'
 
 const AppContext = createContext({})
 
-export function AppProvider({children}: Readonly<{
-  children: React.ReactNode;
+export function AppProvider({
+  children,
+}: Readonly<{
+  children: React.ReactNode
 }>) {
   const [state, setState] = useState({
     global: {
       navigation: {
         home: '/',
         about: '/about',
-        contact: '/contact'
+        contact: '/contact',
       },
       brand: {
         title: 'Demo Landing',
         logo: '',
-        copyright: '©2023 Yourcompany'
+        copyright: '©2023 Yourcompany',
       },
       socials: {
         facebook: '#',
@@ -37,7 +39,8 @@ export function AppProvider({children}: Readonly<{
       home: {
         hero: {
           title: 'Introduce Your Product Quickly & Effectively',
-          content: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.'
+          content:
+            'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
         },
       },
       about: {},
@@ -46,6 +49,8 @@ export function AppProvider({children}: Readonly<{
   })
 
   return (
-    <AppContext.Provider value={{state, setState}}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ state, setState }}>
+      {children}
+    </AppContext.Provider>
   )
 }
