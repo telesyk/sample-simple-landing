@@ -1,11 +1,9 @@
-import Container from '@/components/Container'
+import HomeContainer from '@/components/HomeContainer'
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
-      <Container className="bg-orange-200 gap-6 justify-between">
-        Some main content
-      </Container>
+      <HomeContainer />
     </main>
   )
 }
