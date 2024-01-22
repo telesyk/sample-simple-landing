@@ -3,10 +3,10 @@
 import { useHomeContext } from './context'
 import SectionContainer from '../Section'
 import TextContent from '../TextContent'
+import { HeroContextType } from '@/types'
 
 export default function SectionHero() {
-  // temporaly using 'any' as type to fix typescript lexical issue
-  const { hero }: any = useHomeContext()
+  const { hero }: { hero?: HeroContextType } = useHomeContext()
 
   return (
     <SectionContainer>
