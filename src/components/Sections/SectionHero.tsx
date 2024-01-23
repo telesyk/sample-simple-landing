@@ -3,7 +3,7 @@
 import PrimaryButton from '../Buttons/PrimaryButton'
 import SecondaryButton from '../Buttons/SecondaryButton'
 import { useHomeContext } from '../HomeContainer/context'
-import SectionContainer from '../Section'
+import SectionContainer from '../SectionContainer'
 import TextContent from '../TextContent'
 import { HeroContextProps } from '@/types'
 

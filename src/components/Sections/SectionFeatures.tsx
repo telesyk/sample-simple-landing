@@ -1,7 +1,7 @@
 'use client'
 
 import { useHomeContext } from '../HomeContainer/context'
-import SectionContainer from '../Section'
+import SectionContainer from '../SectionContainer'
 import TextContent from '../TextContent'
 import { FeaturesContextProps } from '@/types'
 

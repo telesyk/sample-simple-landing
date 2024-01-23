@@ -1,5 +1,5 @@
 import { ContentPositionType } from '@/types'
-import Container from '../Container'
+import Container from '../Layout/Container'
 import Image from 'next/image'
 
 interface SectionProps {

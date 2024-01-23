@@ -22,10 +22,7 @@ const data = {
       instagram: '#',
     },
     button: {
-      primary1: 'Buy Now',
-      primary2: 'Purchase Now',
-      primary3: 'Purchase UI Kit',
-      secondary: 'Learn More',
+      primary: 'Buy Now',
     },
     pricing: [
       {
