@@ -14,15 +14,37 @@ const data = {
       logo: '',
       copyright: '©2023 Yourcompany',
     },
-    social: {
-      facebook: '#',
-      linkedin: '#',
-      twitter: '#',
-      youtube: '#',
-      instagram: '#',
+    social: [
+      {
+        title: 'facebook',
+        url: '#',
+      },
+      {
+        title: 'linkkedin',
+        url: '#',
+      },
+      {
+        title: 'twitter',
+        url: '#',
+      },
+      {
+        title: 'youtube',
+        url: '#',
+      },
+      {
+        title: 'instagram',
+        url: '#',
+      },
+    ],
+    header: {
+      button: {
+        primary: 'Buy Now',
+      },
     },
-    button: {
-      primary: 'Buy Now',
+    footer: {
+      button: {
+        primary: 'Purchase Now',
+      },
     },
     pricing: [
       {
