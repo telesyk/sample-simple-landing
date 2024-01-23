@@ -2,12 +2,15 @@
 
 import { createContext, useContext } from 'react'
 import { useAppContext } from '@/app/context'
-import { HeroContextType } from '@/types'
+import { HeroContextProps, FeaturesContextProps } from '@/types'
 
 interface HomeContextProps {
-  hero: HeroContextType
-  about: object
-  contact: object
+  hero: HeroContextProps
+  features: FeaturesContextProps
+  benefit1: object
+  benefit2: object
+  benefit3: object
+  pricing: object
 }
 
 export const HomeContext = createContext<HomeContextProps | {}>({})

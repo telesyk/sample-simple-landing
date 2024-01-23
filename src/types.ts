@@ -1,25 +1,33 @@
-export type FeatureType = {
-  image?: string
-  title?: string
-  content?: string
-}
-
 export type ContentPositionType = 'left' | 'right' | 'center'
 
 export type HeadingType = 'h1' | 'h2' | 'h3'
 
-export type HeroButtonType = {
+export interface TextContentType {
+  title?: string
+  content?: string
+  image?: string
+}
+
+export interface FeatureType {
+  title?: string
+  description?: string
+  icon?: string
+}
+
+export type ButtonType = {
   title: string
   link?: null
 }
 
-export type HeroContextType = {
-  title: string
-  content: string
+export interface HeroContextProps extends TextContentType {
   button?: {
-    primary?: HeroButtonType
-    secondary?: HeroButtonType
+    primary?: ButtonType
+    secondary?: ButtonType
   }
+}
+
+export interface FeaturesContextProps extends TextContentType {
+  items?: FeatureType[]
 }
 
 export type ButtonSizeType = 'sm' | 'md'

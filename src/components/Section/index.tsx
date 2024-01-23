@@ -1,22 +1,21 @@
-import { FeatureType, ContentPositionType } from '@/types'
+import { ContentPositionType } from '@/types'
 import Container from '../Container'
+import Image from 'next/image'
 
 interface SectionProps {
   image?: string
-  content?: string
   contentPosition?: ContentPositionType
   title?: string
-  features?: FeatureType[]
   children: React.ReactNode
+  className?: string
 }
 
 export default function SectionContainer({
   image,
-  content,
-  contentPosition = 'center',
-  title,
-  features,
+  contentPosition = 'left',
+  title = '',
   children,
+  className = '',
 }: SectionProps) {
   const classesPosition =
     contentPosition === 'right'
@@ -26,9 +25,27 @@ export default function SectionContainer({
         : ''
 
   return (
-    <section className="w-full flex justify-center">
-      <Container>
-        <div className={'w-full gap-8 flex ' + classesPosition}>{children}</div>
+    <section className={`w-full flex justify-center ${className}`}>
+      <Container className="py-6">
+        <div
+          className={
+            'w-full gap-8 flex flex-col lg:flex-row lg:items-center' +
+            classesPosition
+          }
+        >
+          {children}
+          {image && (
+            <figure className="flex-auto">
+              <Image
+                alt={title}
+                src={image}
+                width={1}
+                height={1}
+                className="w-full h-auto"
+              />
+            </figure>
+          )}
+        </div>
       </Container>
     </section>
   )

@@ -53,21 +53,50 @@ const data = {
         },
       },
       features: {
-        title: '',
-        content: '',
-        items: [],
+        title: 'Light, Fast & Powerful',
+        content:
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+        items: [
+          {
+            icon: '',
+            title: 'Creative Design Solutions',
+            description:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          },
+          {
+            icon: '',
+            title: 'User-Centric Interface',
+            description:
+              'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          },
+          {
+            icon: '',
+            title: 'Responsive Web Development',
+            description:
+              'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+          },
+          {
+            icon: '',
+            title: 'Brand Identity Crafting',
+            description:
+              'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+          },
+        ],
       },
       benefit1: {
-        title: '',
-        content: '',
+        title: 'Light, Fast & Powerful',
+        content:
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
       },
       benefit2: {
-        title: '',
-        content: '',
+        title: 'Light, Fast & Powerful',
+        content:
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
       },
       benefit3: {
-        title: '',
-        content: '',
+        title: 'Light, Fast & Powerful',
+        content:
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
         button: {
           primary: {
             title: 'Purchase Now',
@@ -76,8 +105,9 @@ const data = {
         },
       },
       pricing: {
-        title: '',
-        content: '',
+        title: 'A Price To Suit Everyone',
+        content:
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus',
       },
     },
     about: {},

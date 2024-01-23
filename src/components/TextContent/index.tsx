@@ -5,6 +5,7 @@ interface TextContentProps {
   content?: string
   headingType: HeadingType
   children?: React.ReactNode
+  className?: string
 }
 
 export default function TextContent({
@@ -12,20 +13,22 @@ export default function TextContent({
   content,
   headingType = 'h1',
   children,
+  className,
 }: TextContentProps) {
+  const baseClasses = 'font-medium leading-snug'
   const heading = (text: string) =>
     headingType === 'h3' ? (
-      <h3 className="text-md">{text}</h3>
+      <h3 className={`text-md leading ${baseClasses}`}>{text}</h3>
     ) : headingType === 'h2' ? (
-      <h2 className="text-xl">{text}</h2>
+      <h2 className={`text-2xl ${baseClasses}`}>{text}</h2>
     ) : (
-      <h1 className="text-3xl">{text}</h1>
+      <h1 className={`text-5xl ${baseClasses}`}>{text}</h1>
     )
 
   return (
-    <article>
+    <article className={className}>
       {title && heading(title)}
-      {content && <p>{content}</p>}
+      {content && <p className="my-8">{content}</p>}
       {children}
     </article>
   )
