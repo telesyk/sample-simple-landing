@@ -1,4 +1,4 @@
-import SectionHero from './SectionHero'
+import SectionHero from '../Sections/SectionHero'
 import { HomeProvider } from './context'
 
 export default function HomeContainer() {

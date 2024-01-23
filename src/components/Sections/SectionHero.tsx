@@ -1,6 +1,6 @@
 'use client'
 
-import { useHomeContext } from './context'
+import { useHomeContext } from '../HomeContainer/context'
 import SectionContainer from '../Section'
 import TextContent from '../TextContent'
 import { HeroContextType } from '@/types'
