@@ -14,19 +14,26 @@ const data = {
       logo: '',
       copyright: '©2023 Yourcompany',
     },
-    socials: {
+    social: {
       facebook: '#',
       linkedin: '#',
       twitter: '#',
       youtube: '#',
       instagram: '#',
     },
-    buttons: {
+    button: {
       primary1: 'Buy Now',
       primary2: 'Purchase Now',
       primary3: 'Purchase UI Kit',
       secondary: 'Learn More',
     },
+    pricing: [
+      {
+        title: 'UI Design Kit',
+        description: 'See, One price. Simple.',
+        value: '40',
+      },
+    ],
   },
   pages: {
     home: {
@@ -34,10 +41,39 @@ const data = {
         title: 'Introduce Your Product Quickly & Effectively',
         content:
           'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+        button: {
+          primary: {
+            title: 'Purchase UI Kit',
+            link: null,
+          },
+          secondary: {
+            title: 'Learn More',
+            link: '/about',
+          },
+        },
       },
       features: {
         title: '',
         content: '',
+        items: [],
+      },
+      benefit1: {
+        title: '',
+        content: '',
+      },
+      benefit2: {
+        title: '',
+        content: '',
+      },
+      benefit3: {
+        title: '',
+        content: '',
+        button: {
+          primary: {
+            title: 'Purchase Now',
+            link: null,
+          },
+        },
       },
       pricing: {
         title: '',

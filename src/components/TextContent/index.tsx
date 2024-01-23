@@ -1,14 +1,18 @@
 import { HeadingType } from '@/types'
 
+interface TextContentProps {
+  title?: string
+  content?: string
+  headingType: HeadingType
+  children?: React.ReactNode
+}
+
 export default function TextContent({
   title,
   content,
   headingType = 'h1',
-}: {
-  title?: string
-  content?: string
-  headingType: HeadingType
-}) {
+  children,
+}: TextContentProps) {
   const heading = (text: string) =>
     headingType === 'h3' ? (
       <h3 className="text-md">{text}</h3>
@@ -22,6 +26,7 @@ export default function TextContent({
     <article>
       {title && heading(title)}
       {content && <p>{content}</p>}
+      {children}
     </article>
   )
 }
