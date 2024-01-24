@@ -7,13 +7,13 @@ import Image from 'next/image'
 import { TbBrandAbstract, TbMenu } from 'react-icons/tb'
 import Container from './Container'
 import PrimaryButton from '../Buttons/PrimaryButton'
+import LoadingMenu from './LoadingMenu'
 
 export default function Header() {
   const { navigation, brand, header }: GlobalProps = useGlobalContext()
 
   const renderMenu = () => {
-    if (navigation.length < 1)
-      return <p className="text-italic">Loading menu</p>
+    if (!navigation) return <LoadingMenu />
     return (
       <ul className="flex flex-col lg:flex-row justify-center gap-2">
         {navigation.map((navItem: NavType) => (

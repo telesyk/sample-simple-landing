@@ -60,7 +60,7 @@ export interface FeaturesContextProps extends TextContentType {
 export interface GlobalProps {
   navigation: NavType[]
   brand: BrandType
-  social?: SocialItemType[]
+  socials?: SocialItemType[] | undefined
   header?: {
     button: ButtonMapType
   }

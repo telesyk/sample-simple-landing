@@ -24,13 +24,13 @@ const data = {
       logo: '',
       copyright: '©2023 Yourcompany',
     },
-    social: [
+    socials: [
       {
         title: 'facebook',
         url: '#',
       },
       {
-        title: 'linkkedin',
+        title: 'linkedin',
         url: '#',
       },
       {
