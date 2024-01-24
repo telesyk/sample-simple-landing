@@ -64,7 +64,7 @@ export default function Footer() {
   return (
     <div className="flex justify-center bg-blue-300/30">
       <Container className="flex-col py-4 lg:py-6">
-        <div className="py-7 lg:py-9 flex flex-col justify-center gap-8 lg:flex-row lg:justify-between">
+        <div className="py-7 lg:py-9 flex flex-col lg:flex-row justify-center gap-8 lg:justify-between">
           <div className="flex-auto flex justify-center lg:order-2">
             <p className="text-2xl font-bold text-blue-900">{brand.title}</p>
           </div>
@@ -79,7 +79,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="py-3 lg:py-5 flex flex-col lg:flex-row border-t border-zinc-300">
+        <div className="py-3 lg:py-5 flex border-t border-zinc-300">
           <nav className="flex-auto">{renderMenu()}</nav>
           <nav className="flex-auto">{renderSocialMenu()}</nav>
         </div>

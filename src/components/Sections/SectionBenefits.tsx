@@ -1,23 +1,57 @@
 'use client'
 
+import PrimaryButton from '../Buttons/PrimaryButton'
 import { useHomeContext } from '../HomeContainer/context'
 import SectionContainer from '../SectionContainer'
 import TextContent from '../TextContent'
-import { FeaturesContextProps } from '@/types'
+import { BenefitsContextProps } from '@/types'
 
-export default function SectionFeatures() {
-  const { features }: { features?: FeaturesContextProps } = useHomeContext()
+interface BenefitsProps {
+  variation: '1' | '2' | '3'
+  isButton?: boolean
+  contentPosition?: 'left' | 'right'
+}
+
+export default function SectionBenefits({
+  variation,
+  isButton = false,
+  contentPosition = 'right',
+}: BenefitsProps) {
+  const {
+    benefit1,
+    benefit2,
+    benefit3,
+  }: {
+    benefit1?: BenefitsContextProps
+    benefit2?: BenefitsContextProps
+    benefit3?: BenefitsContextProps
+  } = useHomeContext()
+
+  const benefits =
+    variation === '1' ? benefit1 : variation === '2' ? benefit2 : benefit3
 
   return (
-    <SectionContainer title={features?.title} image="/features_svg.svg">
-      <TextContent
-        title={features?.title}
-        content={features?.content}
-        headingType={'h2'}
-        className="max-w-[540px]"
-      >
-        <div className="flex flex-wrap gap-8 items-center">Items</div>
-      </TextContent>
-    </SectionContainer>
+    <>
+      {!benefits ? (
+        <p>loading benefits</p>
+      ) : (
+        <SectionContainer
+          contentPosition={contentPosition}
+          title={benefits.title}
+          image={`/benefits_${variation}.svg`}
+        >
+          <TextContent
+            title={benefits.title}
+            content={benefits.content}
+            headingType={'h2'}
+            className="max-w-screen-md lg:max-w-[445px]"
+          >
+            {isButton && (
+              <PrimaryButton>{benefits.button?.primary?.title}</PrimaryButton>
+            )}
+          </TextContent>
+        </SectionContainer>
+      )}
+    </>
   )
 }

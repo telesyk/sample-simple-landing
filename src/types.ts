@@ -54,6 +54,8 @@ export interface HeroContextProps extends TextContentType {
   button?: ButtonMapType
 }
 
+export interface BenefitsContextProps extends HeroContextProps {}
+
 export interface FeaturesContextProps extends TextContentType {
   items?: FeatureType[]
 }
