@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { AppProvider } from './context'
+import { GlobalProvider, PagesProvider } from './context'
 import Header from '@/components/Layout/Header'
 import Footer from '@/components/Layout/Footer'
 
@@ -17,11 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AppProvider>
+        <GlobalProvider>
           <Header />
-          {children}
+          <PagesProvider>{children}</PagesProvider>
           <Footer />
-        </AppProvider>
+        </GlobalProvider>
       </body>
     </html>
   )

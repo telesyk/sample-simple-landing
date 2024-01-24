@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext } from 'react'
-import { useAppContext } from '@/app/context'
+import { usePagesContext } from '@/app/context'
 import { HeroContextProps, FeaturesContextProps } from '@/types'
 
 interface HomeContextProps {
@@ -20,9 +20,7 @@ export function HomeProvider({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const {
-    pages: { home },
-  } = useAppContext()
+  const { home } = usePagesContext()
 
   return (
     <HomeContext.Provider value={{ ...home }}>{children}</HomeContext.Provider>

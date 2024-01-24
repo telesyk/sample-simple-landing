@@ -1,14 +1,24 @@
 'use client'
 
+import { GlobalProps } from '@/types'
 import { createContext, useContext } from 'react'
 
 const data = {
   global: {
-    navigation: {
-      home: '/',
-      about: '/about',
-      contact: '/contact',
-    },
+    navigation: [
+      {
+        title: 'home',
+        url: '/',
+      },
+      {
+        title: 'about',
+        url: '/about',
+      },
+      {
+        title: 'contact',
+        url: '/contact',
+      },
+    ],
     brand: {
       title: 'Demo Landing',
       logo: '',
@@ -38,12 +48,16 @@ const data = {
     ],
     header: {
       button: {
-        primary: 'Buy Now',
+        primary: {
+          title: 'Buy Now',
+        },
       },
     },
     footer: {
       button: {
-        primary: 'Purchase Now',
+        primary: {
+          title: 'Purchase Now',
+        },
       },
     },
     pricing: [
@@ -134,16 +148,32 @@ const data = {
   },
 }
 
-export const AppContext = createContext({ ...data })
+export const GlobalContext = createContext<GlobalProps>({ ...data.global })
+export const PagesContext = createContext({ ...data.pages })
 
-export function AppProvider({
+export function PagesProvider({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <AppContext.Provider value={{ ...data }}>{children}</AppContext.Provider>
+    <PagesContext.Provider value={{ ...data.pages }}>
+      {children}
+    </PagesContext.Provider>
   )
 }
 
-export const useAppContext = () => useContext(AppContext)
+export function GlobalProvider({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <GlobalContext.Provider value={{ ...data.global }}>
+      {children}
+    </GlobalContext.Provider>
+  )
+}
+
+export const useGlobalContext = () => useContext(GlobalContext)
+export const usePagesContext = () => useContext(PagesContext)

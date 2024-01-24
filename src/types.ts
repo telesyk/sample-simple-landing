@@ -1,4 +1,7 @@
-export type NavLinkType = string
+export type NavType = {
+  title: string
+  url: string
+}
 
 export type SocialItemType = {
   title: string
@@ -22,30 +25,17 @@ export type ButtonType = {
   link?: null
 }
 
-export interface GlobalProps {
-  navigation: {
-    home: NavLinkType
-    about: NavLinkType
-    contact: NavLinkType
-  }
-  brand: BrandType
-  social?: SocialItemType[]
-  header?: {
-    button: {
-      primary: ButtonType
-    }
-  }
-  footer?: {
-    button: {
-      primary: ButtonType
-    }
-  }
-  pricing?: PricingItemType[]
-}
+export type ButtonVariationType = 'primary' | 'secondary'
+
+export type ButtonSizeType = 'sm' | 'md'
 
 export type ContentPositionType = 'left' | 'right' | 'center'
 
 export type HeadingType = 'h1' | 'h2' | 'h3'
+
+export type ButtonMapType = {
+  [key in ButtonVariationType]?: ButtonType
+}
 
 export interface TextContentType {
   title?: string
@@ -60,14 +50,22 @@ export interface FeatureType {
 }
 
 export interface HeroContextProps extends TextContentType {
-  button?: {
-    primary?: ButtonType
-    secondary?: ButtonType
-  }
+  button?: ButtonMapType
 }
 
 export interface FeaturesContextProps extends TextContentType {
   items?: FeatureType[]
 }
 
-export type ButtonSizeType = 'sm' | 'md'
+export interface GlobalProps {
+  navigation: NavType[]
+  brand: BrandType
+  social?: SocialItemType[]
+  header?: {
+    button: ButtonMapType
+  }
+  footer?: {
+    button: ButtonMapType
+  }
+  pricing?: PricingItemType[]
+}
