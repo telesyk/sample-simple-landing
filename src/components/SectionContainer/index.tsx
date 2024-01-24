@@ -21,17 +21,14 @@ export default function SectionContainer({
     contentPosition === 'right'
       ? 'flex-row-reverse'
       : contentPosition === 'center'
-        ? 'justify-center'
+        ? 'justify-center text-center'
         : ''
 
   return (
     <section className={`w-full flex justify-center ${className}`}>
       <Container className="py-6">
         <div
-          className={
-            'w-full gap-8 flex flex-col lg:flex-row lg:items-center' +
-            classesPosition
-          }
+          className={`w-full gap-8 flex flex-col lg:flex-row lg:items-center ${classesPosition}`}
         >
           {children}
           {image && (

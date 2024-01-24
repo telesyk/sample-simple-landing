@@ -65,6 +65,11 @@ const data = {
         title: 'UI Design Kit',
         description: 'See, One price. Simple.',
         value: '40',
+        button: {
+          primary: {
+            title: 'Purchase Now',
+          },
+        },
       },
     ],
   },

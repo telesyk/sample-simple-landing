@@ -20,7 +20,7 @@ export default function TextContent({
     headingType === 'h3' ? (
       <h3 className={`text-md leading ${baseClasses}`}>{text}</h3>
     ) : headingType === 'h2' ? (
-      <h2 className={`text-2xl ${baseClasses}`}>{text}</h2>
+      <h2 className={`text-4xl ${baseClasses}`}>{text}</h2>
     ) : (
       <h1 className={`text-5xl ${baseClasses}`}>{text}</h1>
     )

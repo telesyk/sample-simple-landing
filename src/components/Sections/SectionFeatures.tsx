@@ -13,7 +13,7 @@ export default function SectionFeatures() {
       <TextContent
         title={features?.title}
         content={features?.content}
-        headingType={'h1'}
+        headingType={'h2'}
         className="max-w-[540px]"
       >
         <div className="flex flex-wrap gap-8 items-center">Items</div>

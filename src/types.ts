@@ -12,6 +12,7 @@ export type PricingItemType = {
   title: string
   description?: string
   value: string
+  button?: ButtonMapType
 }
 
 export type BrandType = {
