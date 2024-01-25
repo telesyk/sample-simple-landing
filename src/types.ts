@@ -38,6 +38,10 @@ export type ButtonMapType = {
   [key in ButtonVariationType]?: ButtonType
 }
 
+export interface ButtonProps {
+  size?: ButtonSizeType
+}
+
 export interface TextContentType {
   title?: string
   content?: string

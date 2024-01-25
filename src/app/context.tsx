@@ -122,17 +122,17 @@ const data = {
         ],
       },
       benefit1: {
-        title: 'Light, Fast & Powerful',
+        title: 'Empowering Brands at Warp Speed',
         content:
           'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
       },
       benefit2: {
-        title: 'Light, Fast & Powerful',
+        title: 'Illuminating Your Global Presence with Dynamic',
         content:
           'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
       },
       benefit3: {
-        title: 'Light, Fast & Powerful',
+        title: 'A Symphony of Creativity and Precision',
         content:
           'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
         button: {

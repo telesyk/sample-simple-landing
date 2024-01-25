@@ -31,7 +31,7 @@ export default function SectionHero() {
       title={hero?.title}
       sectionStyles={styles}
       image="/hero.svg"
-      className="max-h-screen lg:h-[80vh] overflow-x-hidden"
+      className="max-h-screen lg:h-[80vh] overflow-hidden"
       imageClassName="w-full max-w-[480px] lg:max-w-none h-auto lg:scale-150 relative  lg:translate-x-32 xl:translate-x-72"
     >
       <TextContent
@@ -42,7 +42,9 @@ export default function SectionHero() {
       >
         <div className="flex flex-wrap gap-8 items-center">
           <PrimaryButton>{hero?.button?.primary?.title}</PrimaryButton>
-          <SecondaryButton>{hero?.button?.secondary?.title}</SecondaryButton>
+          <SecondaryButton href={hero?.button?.secondary?.link}>
+            {hero?.button?.secondary?.title}
+          </SecondaryButton>
         </div>
       </TextContent>
     </SectionContainer>
