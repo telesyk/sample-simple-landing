@@ -13,6 +13,7 @@ import SectionBenefits from './Sections/SectionBenefits'
 import SectionFeatures from './Sections/SectionFeatures'
 import SectionHero from './Sections/SectionHero'
 import SectionPricing from './Sections/SectionPricing'
+import FeatureItem from './FeatureItem'
 
 export {
   Container,
@@ -30,4 +31,5 @@ export {
   SectionFeatures,
   SectionHero,
   SectionPricing,
+  FeatureItem,
 }

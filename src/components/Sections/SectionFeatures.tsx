@@ -2,21 +2,39 @@
 
 import { FeaturesContextProps } from '@/types'
 import { useHomeContext } from '../HomeContainer/context'
-import { SectionContainer, TextContent } from '@/components'
+import { FeatureItem, SectionContainer, TextContent } from '@/components'
+import { FeatureIcon1 } from '@/assets'
 
 export default function SectionFeatures() {
   const { features }: { features?: FeaturesContextProps } = useHomeContext()
 
   return (
-    <SectionContainer title={features?.title} image="/features_svg.svg">
-      <TextContent
-        title={features?.title}
-        content={features?.content}
-        headingType={'h2'}
-        className="max-w-screen-md lg:max-w-[540px]"
-      >
-        <div className="flex flex-wrap gap-8 items-center">Items</div>
-      </TextContent>
-    </SectionContainer>
+    <>
+      {features && (
+        <SectionContainer title={features.title} image="/features_svg.svg">
+          <TextContent
+            title={features.title}
+            content={features.content}
+            headingType={'h2'}
+            className="max-w-screen-md lg:max-w-[540px]"
+          >
+            <div className="lg:my-16 grid grid-cols-2 gap-8">
+              {features.items?.map(item => (
+                <FeatureItem
+                  key={item.title}
+                  title={item.title}
+                  content={item.description}
+                  icon={
+                    <FeatureIcon1
+                      className={'stroke-blue-950 dark:stroke-blue-100'}
+                    />
+                  }
+                />
+              ))}
+            </div>
+          </TextContent>
+        </SectionContainer>
+      )}
+    </>
   )
 }
