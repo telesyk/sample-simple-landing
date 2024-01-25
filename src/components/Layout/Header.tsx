@@ -5,9 +5,7 @@ import { NavType, GlobalProps } from '@/types'
 import Link from 'next/link'
 import Image from 'next/image'
 import { TbBrandAbstract, TbMenu } from 'react-icons/tb'
-import Container from './Container'
-import PrimaryButton from '../Buttons/PrimaryButton'
-import LoadingMenu from './LoadingMenu'
+import { Container, PrimaryButton, LoadingMenu } from '@/components'
 
 export default function Header() {
   const { navigation, brand, header }: GlobalProps = useGlobalContext()
@@ -33,8 +31,8 @@ export default function Header() {
   return (
     <header className="flex justify-center">
       <Container>
-        <nav className="w-full flex py-2 gap-6 justify-between items-center">
-          <div className="flex-auto flex gap-1 items-center">
+        <nav className="w-full inline-flex py-2 gap-6 justify-between items-center">
+          <div className="flex-1 inline-flex gap-1 items-center">
             {!brand.logo ? (
               <TbBrandAbstract className="w-10 h-10 stroke-blue-900" />
             ) : (
@@ -50,12 +48,12 @@ export default function Header() {
             </h1>
           </div>
           <div className="flex-1 hidden lg:block">{renderMenu()}</div>
-          <div className="flex-auto flex flex- justify-end">
+          <div className="inline-flex justify-end">
             <PrimaryButton size="sm">
               {header?.button.primary?.title}
             </PrimaryButton>
           </div>
-          <div className="flex-auto flex justify-end lg:hidden">
+          <div className="inline-flex justify-end lg:hidden">
             <button className="rounded border-2 border-blue-900 hover:border-blue-800 transition">
               <TbMenu className="w-8 h-8 stroke-blue-900" />
             </button>

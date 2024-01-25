@@ -1,9 +1,8 @@
 'use client'
 
-import { useHomeContext } from '../HomeContainer/context'
-import SectionContainer from '../SectionContainer'
-import TextContent from '../TextContent'
 import { FeaturesContextProps } from '@/types'
+import { useHomeContext } from '../HomeContainer/context'
+import { SectionContainer, TextContent } from '@/components'
 
 export default function SectionFeatures() {
   const { features }: { features?: FeaturesContextProps } = useHomeContext()

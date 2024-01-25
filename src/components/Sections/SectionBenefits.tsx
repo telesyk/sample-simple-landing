@@ -1,10 +1,8 @@
 'use client'
 
-import PrimaryButton from '../Buttons/PrimaryButton'
-import { useHomeContext } from '../HomeContainer/context'
-import SectionContainer from '../SectionContainer'
-import TextContent from '../TextContent'
 import { BenefitsContextProps } from '@/types'
+import { useHomeContext } from '../HomeContainer/context'
+import { PrimaryButton, SectionContainer, TextContent } from '@/components'
 
 interface BenefitsProps {
   variation: '1' | '2' | '3'

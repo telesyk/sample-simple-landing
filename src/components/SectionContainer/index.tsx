@@ -1,7 +1,7 @@
-import { ContentPositionType } from '@/types'
-import Container from '../Layout/Container'
-import Image from 'next/image'
 import { CSSProperties } from 'react'
+import { ContentPositionType } from '@/types'
+import Image from 'next/image'
+import { Container } from '@/components'
 
 interface SectionProps {
   image?: string
@@ -9,6 +9,7 @@ interface SectionProps {
   title?: string
   children: React.ReactNode
   className?: string
+  imageClassName?: string
   sectionStyles?: CSSProperties
 }
 
@@ -18,6 +19,7 @@ export default function SectionContainer({
   title = '',
   children,
   className = '',
+  imageClassName = 'w-full max-w-[480px] h-auto',
   sectionStyles,
 }: SectionProps) {
   const classesPosition =
@@ -25,6 +27,13 @@ export default function SectionContainer({
       ? 'lg:flex-row-reverse'
       : contentPosition === 'center'
         ? 'justify-center text-center'
+        : ''
+
+  const imageClassesPosition =
+    contentPosition === 'right'
+      ? 'lg:justify-start'
+      : contentPosition === 'left'
+        ? 'lg:justify-end'
         : ''
 
   return (
@@ -38,13 +47,15 @@ export default function SectionContainer({
         >
           {children}
           {image && (
-            <figure className="flex-auto place-self-center">
+            <figure
+              className={`flex-auto flex justify-center lg:max-w-[49%] ${imageClassesPosition}`}
+            >
               <Image
                 alt={title}
                 src={image}
                 width={1}
                 height={1}
-                className="w-full max-w-[480px] h-auto"
+                className={imageClassName}
               />
             </figure>
           )}

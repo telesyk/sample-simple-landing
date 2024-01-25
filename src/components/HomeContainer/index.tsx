@@ -1,8 +1,10 @@
 import { HomeProvider } from './context'
-import SectionHero from '../Sections/SectionHero'
-import SectionFeatures from '../Sections/SectionFeatures'
-import SectionPricing from '../Sections/SectionPricing'
-import SectionBenefits from '../Sections/SectionBenefits'
+import {
+  SectionHero,
+  SectionFeatures,
+  SectionPricing,
+  SectionBenefits,
+} from '@/components'
 
 export default function HomeContainer() {
   return (

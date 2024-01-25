@@ -2,7 +2,7 @@
 
 import { GlobalProps } from '@/types'
 import { useGlobalContext } from '@/app/context'
-import PrimaryButton from '../Buttons/PrimaryButton'
+import { PrimaryButton } from '@/components'
 
 interface PriceCardProps {
   className?: React.ReactNode

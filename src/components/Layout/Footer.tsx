@@ -4,9 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useGlobalContext } from '@/app/context'
 import { GlobalProps, NavType, SocialItemType } from '@/types'
-import Container from './Container'
-import PrimaryButton from '../Buttons/PrimaryButton'
-import LoadingMenu from './LoadingMenu'
+import { Container, PrimaryButton, LoadingMenu } from '@/components'
 
 interface StateProps {
   socialList: SocialItemType[] | [] | undefined

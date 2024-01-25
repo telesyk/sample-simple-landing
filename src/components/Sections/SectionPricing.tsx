@@ -2,9 +2,7 @@
 
 import { FeaturesContextProps } from '@/types'
 import { useHomeContext } from '../HomeContainer/context'
-import SectionContainer from '../SectionContainer'
-import TextContent from '../TextContent'
-import PriceCard from '../PriceCard'
+import { SectionContainer, TextContent, PriceCard } from '@/components'
 
 export default function SectionPricing() {
   const { pricing }: { pricing?: FeaturesContextProps } = useHomeContext()
