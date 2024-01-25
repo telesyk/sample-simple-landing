@@ -31,7 +31,7 @@ export default function Footer() {
             <Link
               href={socialItem.url}
               title={socialItem.title}
-              className="py-2.5 px-6 lg:pr-0 text-sm transition-colors text-blue-900/60 hover:text-blue-800/90 capitalize"
+              className="py-2.5 px-6 lg:pr-0 text-sm transition-colors text-blue-900/60 hover:text-blue-800/90 dark:text-blue-100 hover:dark:text-blue-200 capitalize"
             >
               {socialItem.title}
             </Link>
@@ -49,7 +49,7 @@ export default function Footer() {
           <li key={navItem.title} className="inline-block">
             <Link
               href={navItem.url}
-              className="py-2.5 px-6 lg:pl-0 text-sm transition-colors text-blue-900/60 hover:text-blue-800/90 capitalize"
+              className="py-2.5 px-6 lg:pl-0 text-sm transition-colors text-blue-900/60 hover:text-blue-800/90 dark:text-blue-100 hover:dark:text-blue-200 capitalize"
             >
               {navItem.title}
             </Link>
@@ -64,7 +64,9 @@ export default function Footer() {
       <Container className="flex-col py-4 lg:py-6">
         <div className="py-7 lg:py-9 flex flex-col lg:flex-row justify-center gap-8 lg:justify-between">
           <div className="flex-auto flex justify-center lg:order-2">
-            <p className="text-2xl font-bold text-blue-900">{brand.title}</p>
+            <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">
+              {brand.title}
+            </p>
           </div>
           <div className="flex-auto flex justify-center lg:justify-end lg:order-3">
             <PrimaryButton size="sm">

@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-white dark:bg-slate-800">
         <GlobalProvider>
           <Header />
           <PagesProvider>{children}</PagesProvider>

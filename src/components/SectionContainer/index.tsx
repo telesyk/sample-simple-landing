@@ -41,7 +41,7 @@ export default function SectionContainer({
       className={`w-full flex justify-center ${className}`}
       style={sectionStyles}
     >
-      <Container className="py-12 lg:py-22">
+      <Container className="py-12 lg:py-24">
         <div
           className={`w-full gap-8 flex flex-col lg:flex-row items-center ${classesPosition}`}
         >

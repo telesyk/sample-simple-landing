@@ -17,7 +17,7 @@ export default function SectionPricing() {
     <SectionContainer
       title={pricing?.title}
       contentPosition="center"
-      className="py-8 lg:py-32"
+      className="py-8 lg:py-28"
       sectionStyles={styles}
     >
       <TextContent

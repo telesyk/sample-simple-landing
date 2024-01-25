@@ -18,7 +18,7 @@ export default function Header() {
           <li key={navItem.title} className="inline-block">
             <Link
               href={navItem.url}
-              className="py-2.5 px-6 transition-colors text-blue-900/60 hover:text-blue-800/90 capitalize"
+              className="py-2.5 px-6 transition-colors text-blue-900/60 hover:text-blue-800/90 dark:text-blue-100 hover:dark:text-blue-200 capitalize"
             >
               {navItem.title}
             </Link>
@@ -29,12 +29,12 @@ export default function Header() {
   }
 
   return (
-    <header className="flex justify-center">
+    <header className="flex justify-center bg-transparent">
       <Container>
         <nav className="w-full inline-flex py-2 gap-6 justify-between items-center">
           <div className="flex-1 inline-flex gap-1 items-center">
             {!brand.logo ? (
-              <TbBrandAbstract className="w-10 h-10 stroke-blue-900" />
+              <TbBrandAbstract className="w-10 h-10 stroke-blue-900 dark:stroke-blue-100" />
             ) : (
               <Image
                 src={brand.logo}
@@ -43,7 +43,7 @@ export default function Header() {
                 height={64}
               />
             )}
-            <h1 className="hidden sm:inline-block font-bold text-lg text-blue-800">
+            <h1 className="hidden sm:inline-block font-bold text-lg text-blue-800 dark:text-blue-100">
               {brand.title}
             </h1>
           </div>
@@ -54,8 +54,8 @@ export default function Header() {
             </PrimaryButton>
           </div>
           <div className="inline-flex justify-end lg:hidden">
-            <button className="rounded border-2 border-blue-900 hover:border-blue-800 transition">
-              <TbMenu className="w-8 h-8 stroke-blue-900" />
+            <button className="rounded border-2 border-blue-900 hover:border-blue-800 dark:border-blue-100 hover:dark:border-blue-200 transition">
+              <TbMenu className="w-8 h-8 stroke-blue-900 dark: dark:stroke-blue-100" />
             </button>
           </div>
         </nav>

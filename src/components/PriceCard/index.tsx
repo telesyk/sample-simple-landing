@@ -18,11 +18,13 @@ export default function PriceCard({ className }: PriceCardProps) {
         <p>Loading price</p>
       ) : (
         <div className={`flex flex-col gap-2.5 p-4 ${className}`}>
-          <div className="font-bold text-5xl text-blue-950">
+          <div className="font-bold text-5xl text-blue-950 dark:text-blue-50">
             $ {priceItem.value}
           </div>
-          <div className="text-blue-950">{priceItem.title}</div>
-          <div className="mt-12 text-zinc-500 text-sm">
+          <div className="text-blue-950 dark:text-blue-100">
+            {priceItem.title}
+          </div>
+          <div className="mt-12 text-zinc-500 dark:text-zinc-100 text-sm">
             {priceItem.description}
           </div>
           <div className="py-1">
