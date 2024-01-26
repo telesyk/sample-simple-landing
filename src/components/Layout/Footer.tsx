@@ -27,15 +27,15 @@ export default function Footer() {
   const renderSocialMenu = () => {
     if (!state.socialList) return <LoadingMenu />
     return (
-      <ul className="flex flex-col lg:flex-row justify-center lg:justify-end gap-2 lg:gap-4">
+      <ul className="flex flex-wrap justify-end lg:items-start gap-4">
         {state.socialList.map((socialItem: SocialItemType) => (
           <li key={socialItem.title} className="inline-block">
             <Link
               href={socialItem.url}
               title={socialItem.title}
-              className="py-2.5 px-6 lg:pr-0 text-sm transition-colors text-blue-900/60 hover:text-blue-800/90 dark:text-blue-100 hover:dark:text-blue-200 capitalize"
+              className="p-2 lg:pr-0 inline-block text-sm transition-colors text-blue-900/60 hover:text-blue-800/90 dark:text-blue-100 hover:dark:text-blue-200 capitalize"
             >
-              <Icon name={iconsList[socialItem.title]} />
+              <Icon name={iconsList[socialItem.title]} className="w-4 h-4" />
             </Link>
           </li>
         ))}
@@ -62,7 +62,7 @@ export default function Footer() {
   }
 
   return (
-    <div className="flex justify-center bg-indigo-300/20">
+    <footer className="flex justify-center bg-indigo-300/20">
       <Container className="flex-col py-4 lg:py-6">
         <div className="py-7 lg:py-9 flex flex-col lg:flex-row justify-center gap-8 lg:justify-between">
           <div className="flex-auto flex justify-center lg:order-2">
@@ -86,6 +86,6 @@ export default function Footer() {
           <nav className="flex-auto">{renderSocialMenu()}</nav>
         </div>
       </Container>
-    </div>
+    </footer>
   )
 }

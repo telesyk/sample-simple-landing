@@ -1,10 +1,10 @@
 'use client'
 
 import { BenefitsContextProps } from '@/types'
-import { useHomeContext } from '../HomeContainer/context'
+import { useHomeContext } from './context'
 import { PrimaryButton, SectionContainer, TextContent } from '@/components'
 
-interface BenefitsProps {
+interface SectionProps {
   variation: '1' | '2' | '3'
   isButton?: boolean
   contentPosition?: 'left' | 'right'
@@ -14,7 +14,7 @@ export default function SectionBenefits({
   variation,
   isButton = false,
   contentPosition = 'right',
-}: BenefitsProps) {
+}: SectionProps) {
   const {
     benefit1,
     benefit2,

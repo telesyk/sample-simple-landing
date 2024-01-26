@@ -4,36 +4,42 @@ import Image from 'next/image'
 import { Container } from '@/components'
 
 interface SectionProps {
-  image?: string
-  contentPosition?: ContentPositionType
-  title?: string
   children: React.ReactNode
   className?: string
-  imageClassName?: string
+  title?: string
   sectionStyles?: CSSProperties
+  itemsDesktopAlign?: 'start' | 'end' | 'center'
+  contentPosition?: ContentPositionType
+  image?: string
+  imageClassName?: string
+  imageWidth?: `${number}` | number
+  imageHeight?: `${number}` | number
 }
 
 export default function SectionContainer({
-  image,
-  contentPosition = 'left',
-  title = '',
   children,
-  className = '',
-  imageClassName = 'w-full max-w-[480px] h-auto',
+  className = 'py-12 lg:py-24',
+  title = '',
   sectionStyles,
+  itemsDesktopAlign = 'center',
+  contentPosition = 'left',
+  image,
+  imageClassName = 'w-full h-auto',
+  imageWidth = 100,
+  imageHeight = 100,
 }: SectionProps) {
-  const classesPosition =
+  const contentPositionClass =
     contentPosition === 'right'
-      ? 'lg:flex-row-reverse'
+      ? 'lg:flex-row-reverse lg:justify-between'
       : contentPosition === 'center'
-        ? 'justify-center text-center'
-        : ''
+        ? 'lg:justify-center text-center'
+        : 'lg:justify-between'
 
-  const imageClassesPosition =
+  const imagePositionClass =
     contentPosition === 'right'
-      ? 'lg:justify-start'
+      ? 'lg:justify-end'
       : contentPosition === 'left'
-        ? 'lg:justify-end'
+        ? 'lg:justify-start'
         : ''
 
   return (
@@ -41,20 +47,20 @@ export default function SectionContainer({
       className={`w-full flex justify-center ${className}`}
       style={sectionStyles}
     >
-      <Container className="py-12 lg:py-24">
+      <Container>
         <div
-          className={`w-full gap-8 flex flex-col lg:flex-row items-center ${classesPosition}`}
+          className={`w-full gap-16 flex flex-col lg:flex-row items-center lg:items-${itemsDesktopAlign} ${contentPositionClass}`}
         >
           {children}
           {image && (
             <figure
-              className={`flex-auto flex justify-center lg:max-w-[49%] ${imageClassesPosition}`}
+              className={`max-w-[480px] flex-auto lg:flex ${imagePositionClass}`}
             >
               <Image
                 alt={title}
                 src={image}
-                width={1}
-                height={1}
+                width={imageWidth}
+                height={imageHeight}
                 className={imageClassName}
               />
             </figure>

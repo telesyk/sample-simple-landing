@@ -1,5 +1,10 @@
-import React from 'react'
+import AboutContainer from '@/components/AboutContainer'
+import { AboutProvider } from '@/components/AboutContainer/context'
 
 export default function About() {
-  return <div>About page</div>
+  return (
+    <AboutProvider>
+      <AboutContainer />
+    </AboutProvider>
+  )
 }

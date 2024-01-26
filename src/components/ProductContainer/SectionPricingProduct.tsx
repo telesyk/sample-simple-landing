@@ -1,24 +1,22 @@
 'use client'
 
 import { FeaturesContextProps } from '@/types'
-import { useHomeContext } from '../HomeContainer/context'
+import { useProductContext } from './context'
 import { SectionContainer, TextContent, PriceCard } from '@/components'
 
-export default function SectionPricing() {
-  const { pricing }: { pricing?: FeaturesContextProps } = useHomeContext()
-  const styles = {
-    backgroundImage: 'url(/pricing_bg.svg)',
-    backgroundPosition: 'center top',
-    backgroundSize: 'auto',
-    backgroundRepeat: 'no-repeat',
-  }
+interface SectionProps {
+  pricing?: FeaturesContextProps
+}
+
+export default function SectionPricingProduct() {
+  const { pricing }: SectionProps = useProductContext()
 
   return (
     <SectionContainer
       title={pricing?.title}
       contentPosition="center"
-      className="py-8 lg:py-28"
-      sectionStyles={styles}
+      className="py-8 lg:py-28 bg-blue-100/10"
+      // sectionStyles={styles}
     >
       <TextContent
         title={pricing?.title}

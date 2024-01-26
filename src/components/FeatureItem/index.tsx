@@ -20,11 +20,14 @@ export default function FeatureItem({
         <div className="flex-auto">
           <Icon
             name={iconsList[icon]}
-            className="stroke-blue-950 dark:stroke-blue-100"
+            className="fill-blue-950 dark:fill-blue-100"
+            strokeWidth="0"
           />
         </div>
       )}
-      <h3 className="font-medium leading-snug text-md">{title}</h3>
+      <h3 className="font-medium leading-snug text-md text-blue-950 dark:text-blue-100">
+        {title}
+      </h3>
       <p className="flex-auto text-sm text-blue-900/90 dark:text-blue-100/80">
         {content}
       </p>

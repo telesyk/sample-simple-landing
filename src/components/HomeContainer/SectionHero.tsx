@@ -1,7 +1,7 @@
 'use client'
 
 import { HeroContextProps } from '@/types'
-import { useHomeContext } from '../HomeContainer/context'
+import { useHomeContext } from './context'
 import useLargeMediaQueryStyles from '@/hooks/useLargeMediaQueryStyles'
 import {
   PrimaryButton,
@@ -32,7 +32,7 @@ export default function SectionHero() {
       sectionStyles={styles}
       image="/hero.svg"
       className="max-h-screen lg:h-[80vh] overflow-hidden"
-      imageClassName="w-full max-w-[480px] lg:max-w-none h-auto lg:scale-150 relative  lg:translate-x-32 xl:translate-x-72"
+      imageClassName="w-full h-auto lg:scale-150 lg:translate-x-32 xl:translate-x-72"
     >
       <TextContent
         title={hero?.title}
