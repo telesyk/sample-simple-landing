@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { useGlobalContext } from '@/app/context'
 import { GlobalProps, NavType, SocialItemType } from '@/types'
 import { Container, PrimaryButton, LoadingMenu } from '@/components'
+import Icon from '../Icon'
+import { iconsList } from '@/assets'
 
 interface StateProps {
   socialList: SocialItemType[] | [] | undefined
@@ -33,7 +35,7 @@ export default function Footer() {
               title={socialItem.title}
               className="py-2.5 px-6 lg:pr-0 text-sm transition-colors text-blue-900/60 hover:text-blue-800/90 dark:text-blue-100 hover:dark:text-blue-200 capitalize"
             >
-              {socialItem.title}
+              <Icon name={iconsList[socialItem.title]} />
             </Link>
           </li>
         ))}
@@ -60,7 +62,7 @@ export default function Footer() {
   }
 
   return (
-    <div className="flex justify-center bg-blue-300/30">
+    <div className="flex justify-center bg-indigo-300/20">
       <Container className="flex-col py-4 lg:py-6">
         <div className="py-7 lg:py-9 flex flex-col lg:flex-row justify-center gap-8 lg:justify-between">
           <div className="flex-auto flex justify-center lg:order-2">

@@ -3,7 +3,6 @@
 import { FeaturesContextProps } from '@/types'
 import { useHomeContext } from '../HomeContainer/context'
 import { FeatureItem, SectionContainer, TextContent } from '@/components'
-import { FeatureIcon1 } from '@/assets'
 
 export default function SectionFeatures() {
   const { features }: { features?: FeaturesContextProps } = useHomeContext()
@@ -24,11 +23,7 @@ export default function SectionFeatures() {
                   key={item.title}
                   title={item.title}
                   content={item.description}
-                  icon={
-                    <FeatureIcon1
-                      className={'stroke-blue-950 dark:stroke-blue-100'}
-                    />
-                  }
+                  icon="feature-icon-1"
                 />
               ))}
             </div>
