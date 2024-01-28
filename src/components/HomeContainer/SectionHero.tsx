@@ -31,7 +31,7 @@ export default function SectionHero() {
       title={hero?.title}
       sectionStyles={styles}
       image="/hero.svg"
-      className="max-h-screen lg:h-[80vh] overflow-hidden"
+      className="max-h-screen lg:h-[80vh] lg:min-h-[500px] overflow-hidden"
       imageClassName="w-full h-auto lg:scale-150 lg:translate-x-32 xl:translate-x-72"
     >
       <TextContent
