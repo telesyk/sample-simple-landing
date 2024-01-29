@@ -5,13 +5,12 @@ import { useGlobalContext } from '@/app/context'
 import { NavType, GlobalProps } from '@/types'
 import Link from 'next/link'
 import Image from 'next/image'
-import { TbBrandAbstract, TbMenu } from 'react-icons/tb'
-import { IoMdCloseCircleOutline } from 'react-icons/io'
-import { Container, PrimaryButton, LoadingMenu } from '@/components'
+import { TbBrandAbstract, TbMenu, TbSquareX } from 'react-icons/tb'
+import { Container, LoadingMenu } from '@/components'
 import { useLargeScreen } from '@/hooks'
 
-const cssMenuOpen = 'opacity-100 translate-x-0'
-const cssMenuHide = 'opacity-0 translate-x-full'
+const cssMenuOpen = 'opacity-100 rotate-y-0 z-50 w-screen'
+const cssMenuHide = 'opacity-0 rotate-y-90 -z-10 w-80'
 
 export default function Header() {
   const [state, setState] = useState({
@@ -19,7 +18,7 @@ export default function Header() {
     isMenuDisplayed: false,
     menuPreloadClass: 'hidden',
   })
-  const { navigation, brand, header }: GlobalProps = useGlobalContext()
+  const { navigation, brand }: GlobalProps = useGlobalContext()
   const isLargeScreen = useLargeScreen()
 
   useEffect(() => {
@@ -50,24 +49,25 @@ export default function Header() {
   }
 
   const menuListClass =
-    'px-8 py-16 lg:p-0 w-screen lg:max-w-auto lg:w-auto h-screen lg:h-auto ' +
+    'py-16 lg:p-0 lg:w-auto h-screen lg:h-auto ' +
     'flex flex-col lg:flex-row gap-6 lg:gap-2 items-center justify-center ' +
-    'bg-slate-100/70 dark:bg-blue-900/70 backdrop-blur lg:bg-transparent lg:dark:bg-transparent ' +
-    'fixed lg:relative z-50 top-0 right-0 ' +
-    'transition ' +
+    'bg-slate-100/70 dark:bg-blue-900/70 backdrop-blur ' +
+    'lg:bg-transparent lg:dark:bg-transparent ' +
+    'fixed lg:static top-0 right-0 ' +
+    'transform-gpu transition-all ' +
     state.mobileMenuClass
 
   const renderMenu = () => {
     if (!navigation) return <LoadingMenu />
     return (
       <ul className={menuListClass.trim()}>
-        <li className="inline-block lg:hidden">
+        <li className="inline-block lg:hidden shadow">
           <button
             onClick={handleMenu}
             title="Close menu"
             className="text-blue-900/60 hover:text-blue-800/90 dark:text-blue-100 dark:hover:text-blue-200"
           >
-            <IoMdCloseCircleOutline className="w-8 h-8" />
+            <TbSquareX className="w-8 h-8" />
           </button>
         </li>
         {navigation.map((navItem: NavType) => (
@@ -86,7 +86,7 @@ export default function Header() {
   }
 
   return (
-    <header className="flex justify-center bg-transparent">
+    <header className="backdrop-blur">
       <Container className="lg:overflow-hidden">
         <nav className="w-full inline-flex py-2 gap-6 justify-between items-center">
           <div className="flex-1 inline-flex gap-1 items-center">
@@ -107,15 +107,10 @@ export default function Header() {
           <div className={`w-0 lg:w-auto lg:flex-1 ${state.menuPreloadClass}`}>
             {renderMenu()}
           </div>
-          <div className="inline-flex justify-end">
-            <PrimaryButton size="sm">
-              {header?.button.primary?.title}
-            </PrimaryButton>
-          </div>
-          <div className="inline-flex justify-end lg:hidden">
+          <div className="flex-auto inline-flex justify-end lg:hidden">
             <button
               onClick={handleMenu}
-              className="rounded border-2 border-blue-900 hover:border-blue-800 dark:border-blue-100 hover:dark:border-blue-200 transition"
+              className="rounded border-2 border-blue-900 hover:border-blue-800 dark:border-blue-100 hover:dark:border-blue-200 transition relative z-10"
             >
               <TbMenu className="w-8 h-8 stroke-blue-900 dark: dark:stroke-blue-100" />
             </button>

@@ -44,7 +44,7 @@ export default function SectionContainer({
 
   return (
     <section
-      className={`w-screen overflow-x-hidden flex justify-center ${className}`}
+      className={`min-w-full flex justify-center ${className}`}
       style={sectionStyles}
     >
       <Container>

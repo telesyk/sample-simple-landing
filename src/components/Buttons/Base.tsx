@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ButtonProps } from '@/types'
 
 const baseClasses =
-  'inline-flex items-center justify-center gap-4 rounded border-2 box-border transition-colors'
+  'inline-flex items-center justify-center gap-4 rounded border-2 box-border shadow-md transition-colors'
 
 export default function BaseButton({
   size = 'md',

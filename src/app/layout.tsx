@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="overflow-x-hidden bg-white dark:bg-slate-800">
+      <body className="w-screen overflow-x-hidden bg-white dark:bg-slate-800">
         <GlobalProvider>
           <Header />
           <PagesProvider>{children}</PagesProvider>

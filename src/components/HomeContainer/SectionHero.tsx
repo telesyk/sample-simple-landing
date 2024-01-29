@@ -31,14 +31,14 @@ export default function SectionHero() {
       title={hero?.title}
       sectionStyles={styles}
       image="/hero.svg"
-      className="max-h-screen lg:h-[80vh] lg:min-h-[500px] overflow-hidden"
+      className="max-h-screen lg:h-[80vh] lg:min-h-[500px] lg:overflow-visible"
       imageClassName="w-full h-auto lg:scale-150 lg:translate-x-32 xl:translate-x-72"
     >
       <TextContent
         title={hero?.title}
         content={hero?.content}
         headingType={'h1'}
-        className="max-w-screen-md lg:max-w-[540px]"
+        className="max-w-screen-md lg:max-w-[540px] pt-32"
       >
         <div className="flex flex-wrap gap-8 items-center">
           <PrimaryButton>{hero?.button?.primary?.title}</PrimaryButton>

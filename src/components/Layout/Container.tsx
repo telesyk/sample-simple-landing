@@ -5,7 +5,5 @@ export default function Container({
   children: React.ReactNode
   className?: string
 }>) {
-  return (
-    <div className={`px-5 w-full max-w-6xl flex ${className}`}>{children}</div>
-  )
+  return <div className={`px-5 max-w-6xl flex ${className}`}>{children}</div>
 }
