@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useGlobalContext } from '@/app/context'
 import { NavType, GlobalProps } from '@/types'
 import Link from 'next/link'
@@ -7,13 +8,10 @@ import Image from 'next/image'
 import { TbBrandAbstract, TbMenu } from 'react-icons/tb'
 import { IoMdCloseCircleOutline } from 'react-icons/io'
 import { Container, PrimaryButton, LoadingMenu } from '@/components'
-import { useEffect, useState } from 'react'
-import useMediaQueryLarge from '@/hooks/useMediaQueryLarge'
+import { useLargeScreen } from '@/hooks'
 
-const cssMenuOpen =
-  'opacity-100 translate-x-0 bg-slate-100/95 dark:bg-blue-950/95'
-const cssMenuHide =
-  'opacity-0 translate-x-full bg-slate-100/95 dark:bg-blue-950/95'
+const cssMenuOpen = 'opacity-100 translate-x-0'
+const cssMenuHide = 'opacity-0 translate-x-full'
 
 export default function Header() {
   const [state, setState] = useState({
@@ -22,15 +20,14 @@ export default function Header() {
     menuPreloadClass: 'hidden',
   })
   const { navigation, brand, header }: GlobalProps = useGlobalContext()
-
-  const isLargeScreen = useMediaQueryLarge()
+  const isLargeScreen = useLargeScreen()
 
   useEffect(() => {
     setState(prevState => ({ ...prevState, menuPreloadClass: '' }))
   }, [])
 
   useEffect(() => {
-    if (isLargeScreen !== null && !isLargeScreen) {
+    if (!isLargeScreen) {
       handleMobileMenuCssChange()
     }
   }, [isLargeScreen])
@@ -52,12 +49,18 @@ export default function Header() {
     }
   }
 
+  const menuListClass =
+    'px-8 py-16 lg:p-0 w-screen lg:max-w-auto lg:w-auto h-screen lg:h-auto ' +
+    'flex flex-col lg:flex-row gap-6 lg:gap-2 items-center justify-center ' +
+    'bg-slate-100/70 dark:bg-blue-900/70 backdrop-blur lg:bg-transparent lg:dark:bg-transparent ' +
+    'fixed lg:relative z-50 top-0 right-0 ' +
+    'transition ' +
+    state.mobileMenuClass
+
   const renderMenu = () => {
     if (!navigation) return <LoadingMenu />
     return (
-      <ul
-        className={`px-8 py-16 lg:p-0 transition fixed lg:relative z-50 top-0 left-0 w-screen lg:w-auto h-screen lg:h-auto flex flex-col gap-6 lg:gap-2 items-center justify-center lg:flex-row ${state.mobileMenuClass}`}
-      >
+      <ul className={menuListClass.trim()}>
         <li className="inline-block lg:hidden">
           <button
             onClick={handleMenu}
@@ -84,7 +87,7 @@ export default function Header() {
 
   return (
     <header className="flex justify-center bg-transparent">
-      <Container>
+      <Container className="lg:overflow-hidden">
         <nav className="w-full inline-flex py-2 gap-6 justify-between items-center">
           <div className="flex-1 inline-flex gap-1 items-center">
             {!brand.logo ? (

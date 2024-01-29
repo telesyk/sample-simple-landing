@@ -2,7 +2,7 @@
 
 import { HeroContextProps } from '@/types'
 import { useHomeContext } from './context'
-import useLargeMediaQueryStyles from '@/hooks/useLargeMediaQueryStyles'
+import { useCSSStyles } from '@/hooks'
 import {
   PrimaryButton,
   SecondaryButton,
@@ -24,7 +24,7 @@ export default function SectionHero() {
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
   }
-  const styles = useLargeMediaQueryStyles({ defaultStyles, largeStyles })
+  const styles = useCSSStyles({ defaultStyles, largeStyles })
 
   return (
     <SectionContainer

@@ -4,27 +4,25 @@
  * @returns styles depending on media query screen (min-width: 1024px)
  */
 import { useEffect, useState } from 'react'
-import useMediaQueryLarge from './useMediaQueryLarge'
+import useLargeScreen from './useLargeScreen'
 
 type MediaQueryProps = {
   largeStyles: object
   defaultStyles: object
 }
 
-export default function useLargeMediaQueryStyles({
+export default function useCSSStyles({
   defaultStyles,
   largeStyles,
 }: MediaQueryProps) {
   const [styles, setStyles] = useState({})
-  const isLargeScreen = useMediaQueryLarge()
+  const isLargeScreen = useLargeScreen()
 
   useEffect(() => {
-    if (isLargeScreen) {
-      setStyles({ ...largeStyles })
-    } else {
-      setStyles({ ...defaultStyles })
-    }
-  }, [])
+    !isLargeScreen
+      ? setStyles({ ...defaultStyles })
+      : setStyles({ ...largeStyles })
+  }, [isLargeScreen])
 
   return styles
 }
