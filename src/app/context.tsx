@@ -1,7 +1,9 @@
 'use client'
 
-import { GlobalProps } from '@/types'
-import { createContext, useContext } from 'react'
+import { GlobalProps, ThemeModeType } from '@/types'
+import { createContext, useContext, useState } from 'react'
+import { useThemeMode } from '@/hooks'
+import { darkModeSelector } from '@/constants'
 
 const data = {
   global: {
@@ -233,8 +235,12 @@ const data = {
   },
 }
 
+const isDarkMode =
+  typeof window !== 'undefined' && window.matchMedia(darkModeSelector).matches
+
 export const GlobalContext = createContext<GlobalProps>({ ...data.global })
 export const PagesContext = createContext({ ...data.pages })
+export const ThemeContext = createContext<any>({})
 
 export function PagesProvider({
   children,
@@ -260,5 +266,29 @@ export function GlobalProvider({
   )
 }
 
+export function ThemeProvider({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  const [themeMode, setThemeMode] = useState<ThemeModeType>(
+    isDarkMode ? 'dark' : 'light'
+  )
+  const userTheme = useThemeMode(themeMode)
+
+  const handleThemeChange = () => {
+    setThemeMode((prev: string | boolean) =>
+      prev === 'dark' ? 'light' : 'dark'
+    )
+  }
+
+  return (
+    <ThemeContext.Provider value={{ themeMode: userTheme, handleThemeChange }}>
+      {children}
+    </ThemeContext.Provider>
+  )
+}
+
 export const useGlobalContext = () => useContext(GlobalContext)
 export const usePagesContext = () => useContext(PagesContext)
+export const useThemeContext = () => useContext(ThemeContext)

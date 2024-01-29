@@ -76,3 +76,9 @@ export interface GlobalProps {
   }
   pricing?: PricingItemType[]
 }
+
+/*
+ * ThemeMode could be as 'light', 'dark' or boolean value
+ * Boolean value is used for check 'prefers-color-scheme: dark'
+ */
+export type ThemeModeType = 'light' | 'dark'

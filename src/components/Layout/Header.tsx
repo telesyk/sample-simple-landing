@@ -1,28 +1,44 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useGlobalContext } from '@/app/context'
+import { useGlobalContext, useThemeContext } from '@/app/context'
 import { NavType, GlobalProps } from '@/types'
 import Link from 'next/link'
 import Image from 'next/image'
-import { TbBrandAbstract, TbMenu, TbSquareX } from 'react-icons/tb'
+import {
+  TbBrandAbstract,
+  TbMenu,
+  TbSquareX,
+  TbMoonStars,
+  TbSun,
+} from 'react-icons/tb'
 import { Container, LoadingMenu } from '@/components'
 import { useLargeScreen } from '@/hooks'
+
+interface HeaderProps {
+  mobileMenuClass: string
+  isMenuDisplayed: boolean
+  menuPreloadClass: string
+}
 
 const cssMenuOpen = 'opacity-100 rotate-y-0 z-50 w-screen'
 const cssMenuHide = 'opacity-0 rotate-y-90 -z-10 w-80'
 
 export default function Header() {
-  const [state, setState] = useState({
+  const [state, setState] = useState<HeaderProps>({
     mobileMenuClass: '',
     isMenuDisplayed: false,
     menuPreloadClass: 'hidden',
   })
   const { navigation, brand }: GlobalProps = useGlobalContext()
+  const { themeMode, handleThemeChange } = useThemeContext()
   const isLargeScreen = useLargeScreen()
 
   useEffect(() => {
-    setState(prevState => ({ ...prevState, menuPreloadClass: '' }))
+    setState(prevState => ({
+      ...prevState,
+      menuPreloadClass: '',
+    }))
   }, [])
 
   useEffect(() => {
@@ -49,11 +65,11 @@ export default function Header() {
   }
 
   const menuListClass =
+    'fixed lg:static top-0 right-0 ' +
     'py-16 lg:p-0 lg:w-auto h-screen lg:h-auto ' +
     'flex flex-col lg:flex-row gap-6 lg:gap-2 items-center justify-center ' +
-    'bg-slate-100/70 dark:bg-blue-900/70 backdrop-blur ' +
+    'bg-slate-100/95 dark:bg-blue-950/95 backdrop-blur lg:backdrop-blur-none ' +
     'lg:bg-transparent lg:dark:bg-transparent ' +
-    'fixed lg:static top-0 right-0 ' +
     'transform-gpu transition-all ' +
     state.mobileMenuClass
 
@@ -86,8 +102,8 @@ export default function Header() {
   }
 
   return (
-    <header className="backdrop-blur">
-      <Container className="lg:overflow-hidden">
+    <header className="fixed w-full top-0 z-10 backdrop-blur bg-blue-100/15 dark:bg-blue-950/15 shadow flex justify-center">
+      <Container className="flex-1 lg:overflow-hidden">
         <nav className="w-full inline-flex py-2 gap-6 justify-between items-center">
           <div className="flex-1 inline-flex gap-1 items-center">
             {!brand.logo ? (
@@ -107,12 +123,24 @@ export default function Header() {
           <div className={`w-0 lg:w-auto lg:flex-1 ${state.menuPreloadClass}`}>
             {renderMenu()}
           </div>
-          <div className="flex-auto inline-flex justify-end lg:hidden">
+          <div className="basis-[40px] inline-flex justify-end items-center">
+            <button
+              onClick={handleThemeChange}
+              className="inline-flex justify-end items-center"
+            >
+              {themeMode === 'light' ? (
+                <TbMoonStars className="w-8 h-8 stroke-blue-900 dark:stroke-blue-100" />
+              ) : (
+                <TbSun className="w-8 h-8 stroke-blue-900 dark:stroke-blue-100" />
+              )}
+            </button>
+          </div>
+          <div className="basis-[40px] inline-flex justify-end lg:hidden">
             <button
               onClick={handleMenu}
               className="rounded border-2 border-blue-900 hover:border-blue-800 dark:border-blue-100 hover:dark:border-blue-200 transition relative z-10"
             >
-              <TbMenu className="w-8 h-8 stroke-blue-900 dark: dark:stroke-blue-100" />
+              <TbMenu className="w-8 h-8 stroke-blue-900 dark:stroke-blue-100" />
             </button>
           </div>
         </nav>

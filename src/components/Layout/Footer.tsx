@@ -63,7 +63,7 @@ export default function Footer() {
 
   return (
     <footer className="flex justify-center bg-indigo-300/20">
-      <Container className="flex-col py-4 lg:py-6">
+      <Container className="flex-1 flex-col py-4 lg:py-6">
         <div className="py-7 lg:py-9 flex flex-col lg:flex-row justify-center gap-8 lg:justify-between">
           <div className="flex-auto flex justify-center lg:order-2">
             <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">

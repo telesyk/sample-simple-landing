@@ -1,4 +1,5 @@
 import useCSSStyles from './useCSSStyles'
 import useLargeScreen from './useLargeScreen'
+import useThemeMode from './useThemeMode'
 
-export { useCSSStyles, useLargeScreen }
+export { useCSSStyles, useLargeScreen, useThemeMode }

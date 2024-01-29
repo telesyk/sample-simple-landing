@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { GlobalProvider, PagesProvider } from './context'
+import { GlobalProvider, PagesProvider, ThemeProvider } from './context'
 import Header from '@/components/Layout/Header'
 import Footer from '@/components/Layout/Footer'
 
@@ -17,11 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="w-screen overflow-x-hidden bg-white dark:bg-slate-800">
-        <GlobalProvider>
-          <Header />
-          <PagesProvider>{children}</PagesProvider>
-          <Footer />
-        </GlobalProvider>
+        <ThemeProvider>
+          <GlobalProvider>
+            <Header />
+            <PagesProvider>{children}</PagesProvider>
+            <Footer />
+          </GlobalProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
