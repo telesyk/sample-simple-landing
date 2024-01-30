@@ -66,9 +66,9 @@ export default function Header() {
 
   const menuListClass =
     'fixed lg:static top-0 right-0 ' +
-    'py-16 lg:p-0 lg:w-auto h-screen lg:h-auto ' +
+    'py-16 lg:p-0 w-full max-w-[320px] lg:w-auto lg:max-w-auto h-screen lg:h-auto ' +
     'flex flex-col lg:flex-row gap-6 lg:gap-2 items-center justify-center ' +
-    'bg-slate-100/95 dark:bg-blue-950/95 backdrop-blur lg:backdrop-blur-none ' +
+    'bg-slate-100/95 dark:bg-blue-950/95 ' +
     'lg:bg-transparent lg:dark:bg-transparent ' +
     'transform-gpu transition-all ' +
     state.mobileMenuClass
@@ -120,7 +120,9 @@ export default function Header() {
               {brand.title}
             </h1>
           </div>
-          <div className={`w-0 lg:w-auto lg:flex-1 ${state.menuPreloadClass}`}>
+          <div
+            className={`w-0 lg:w-auto lg:flex lg:flex-1 lg:justify-end ${state.menuPreloadClass}`}
+          >
             {renderMenu()}
           </div>
           <div className="basis-[40px] inline-flex justify-end items-center">

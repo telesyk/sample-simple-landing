@@ -10,7 +10,11 @@ export default function SectionFeatures() {
   return (
     <>
       {features && (
-        <SectionContainer title={features.title} image="/features_svg.svg">
+        <SectionContainer
+          title={features.title}
+          image="/features_svg.svg"
+          className="py-12 lg:py-24 bg-pink-950/5 dark:bg-pink-100/5"
+        >
           <TextContent
             title={features.title}
             content={features.content}

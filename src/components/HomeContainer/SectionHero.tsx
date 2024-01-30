@@ -13,18 +13,19 @@ import {
 export default function SectionHero() {
   const { hero }: { hero?: HeroContextProps } = useHomeContext()
   const largeStyles = {
-    backgroundImage: 'url(/hero_bg.svg)',
-    backgroundPosition: '30vw bottom',
+    backgroundPosition: '30vw 99%',
     backgroundSize: '90%',
-    backgroundRepeat: 'no-repeat',
   }
   const defaultStyles = {
-    backgroundImage: 'url(/hero_bg.svg)',
     backgroundPosition: 'center bottom',
     backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
   }
-  const styles = useCSSStyles({ defaultStyles, largeStyles })
+  const newStyles = useCSSStyles({ defaultStyles, largeStyles })
+  const styles = {
+    ...newStyles,
+    backgroundRepeat: 'no-repeat',
+    backgroundImage: 'url(/hero_bg.svg)',
+  }
 
   return (
     <SectionContainer
