@@ -21,8 +21,8 @@ interface HeaderProps {
   menuPreloadClass: string
 }
 
-const cssMenuOpen = 'opacity-100 rotate-y-0 z-50 w-screen'
-const cssMenuHide = 'opacity-0 rotate-y-90 -z-10 w-80'
+const cssMenuOpen = 'opacity-100 rotate-y-0 z-40 max-w-xs right-0'
+const cssMenuHide = 'opacity-0 rotate-y-90 -z-10 max-w-80 -right-[140px]'
 
 export default function Header() {
   const [state, setState] = useState<HeaderProps>({
@@ -65,19 +65,27 @@ export default function Header() {
   }
 
   const menuListClass =
-    'fixed lg:static top-0 right-0 ' +
-    'py-16 lg:p-0 w-full max-w-[320px] lg:w-auto lg:max-w-auto h-screen lg:h-auto ' +
+    'fixed lg:static top-0 ' +
+    'py-16 lg:p-0 w-full lg:w-auto lg:max-w-auto h-screen lg:h-auto ' +
     'flex flex-col lg:flex-row gap-6 lg:gap-2 items-center justify-center ' +
-    'bg-slate-100/95 dark:bg-blue-950/95 ' +
+    'bg-slate-100 dark:bg-blue-950 shadow-2xl lg:shadow-none ' +
     'lg:bg-transparent lg:dark:bg-transparent ' +
     'transform-gpu transition-all ' +
     state.mobileMenuClass
+
+  const menuItemClass =
+    'relative py-2.5 px-6 text-lg lg:text-base uppercase lg:capitalize ' +
+    'transition-colors text-blue-900/60 hover:text-blue-800/90 ' +
+    'dark:text-blue-100 hover:dark:text-blue-200 ' +
+    'after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 ' +
+    'after:w-1/3 after:h-3 after:rounded-full after:shadow-xl after:shadow-sky-700 ' +
+    'after:bg-sky-500/5 after:opacity-0 hover:after:opacity-100'
 
   const renderMenu = () => {
     if (!navigation) return <LoadingMenu />
     return (
       <ul className={menuListClass.trim()}>
-        <li className="inline-block lg:hidden shadow">
+        <li className="inline-block lg:hidden">
           <button
             onClick={handleMenu}
             title="Close menu"
@@ -91,7 +99,7 @@ export default function Header() {
             <Link
               onClick={handleMenu}
               href={navItem.url}
-              className="py-2.5 px-6 text-lg lg:text-base uppercase lg:capitalize transition-colors text-blue-900/60 hover:text-blue-800/90 dark:text-blue-100 hover:dark:text-blue-200"
+              className={menuItemClass}
             >
               {navItem.title}
             </Link>
@@ -102,7 +110,7 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed w-full top-0 z-10 backdrop-blur bg-blue-100/15 dark:bg-blue-950/15 shadow flex justify-center">
+    <header className="fixed w-full top-0 z-50 backdrop-blur bg-blue-100/15 dark:bg-blue-950/15 shadow flex justify-center">
       <Container className="flex-1 lg:overflow-hidden">
         <nav className="w-full inline-flex py-2 gap-6 justify-between items-center">
           <div className="flex-1 inline-flex gap-1 items-center">
