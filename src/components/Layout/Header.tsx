@@ -14,11 +14,13 @@ import {
 } from 'react-icons/tb'
 import { Container, LoadingMenu } from '@/components'
 import { useLargeScreen } from '@/hooks'
+import LoadingHeader from './LoadingHeader'
 
 interface HeaderProps {
   mobileMenuClass: string
   isMenuDisplayed: boolean
   menuPreloadClass: string
+  isMounted: boolean
 }
 
 const cssMenuOpen = 'opacity-100 rotate-y-0 z-40 max-w-xs right-0'
@@ -29,6 +31,7 @@ export default function Header() {
     mobileMenuClass: '',
     isMenuDisplayed: false,
     menuPreloadClass: 'hidden',
+    isMounted: false,
   })
   const { navigation, brand }: GlobalProps = useGlobalContext()
   const { themeMode, handleThemeChange } = useThemeContext()
@@ -38,6 +41,7 @@ export default function Header() {
     setState(prevState => ({
       ...prevState,
       menuPreloadClass: '',
+      isMounted: true,
     }))
   }, [])
 
@@ -108,6 +112,8 @@ export default function Header() {
       </ul>
     )
   }
+
+  if (!state.isMounted) return <LoadingHeader />
 
   return (
     <header className="fixed w-full top-0 z-50 backdrop-blur bg-blue-100/15 dark:bg-blue-950/15 shadow flex justify-center">
